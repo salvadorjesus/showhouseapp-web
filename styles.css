@@ -179,6 +179,42 @@ header p strong {
 /*main {
 }*/
 
+.header-simple
+{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f2f5;
+  padding: 64px;
+}
+
+
+.header-simple h1
+{
+  color: #3d4449;
+  font-size: 44px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-bottom: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.header-simple p
+{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0 auto 16px auto;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
@@ -298,6 +334,11 @@ footer a {
   max-width: 720px;
   /* cambiar por align: left; */
   text-align: center;
+}
+
+footer strong
+{
+  color: #fff;
 }
 
 footer h3 {
