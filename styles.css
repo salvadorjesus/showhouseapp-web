@@ -379,6 +379,22 @@ footer a:hover::before {
   transform-origin: 0% 0%;
 }
 
+/*For YouTube video. Taken from https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed*/
+.container-YouTube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 56.25%;
+}
+.video-YouTube {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*End YouTube*/
+
 @media (min-width: 768px) {
   h2 {
     font-size: 40px;
