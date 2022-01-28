@@ -39,6 +39,20 @@ a {
 	font-family: inherit;
 }
 
+.lang-a {
+  font-family: 'Open Sans', sans-serif;
+  /* font-weight: 300; */
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px rgba(200, 200, 200, 0.5);
+  color: #3d4449;
+  font-size: 50%;
+  position: absolute;
+  align-content: flex-end;
+  top: 10px;
+  left: 85%;
+  z-index: 2;
+}
+
 blockquote, q {
 	quotes: none;
 }
@@ -434,6 +448,11 @@ footer a:hover::before {
 /*End YouTube*/
 
 @media (min-width: 768px) {
+.lang-a {
+  font-size: 90%;
+  left: 92%;
+}
+
   h2 {
     font-size: 40px;
     margin-bottom: 24px;

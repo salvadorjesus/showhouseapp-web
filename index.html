@@ -4,6 +4,55 @@
 -->
 <html>
 
+    <script src="translate.js"></script>
+    <script>
+        //Objeto traductor
+        var translate = new Translate();
+
+        //Llamada desde Body
+        function load() {
+            var currentLng = getLanguage();//'en';//'fr'
+            translatePage(currentLng);
+        }
+
+        function switchTranslation() {
+            if (translate.lng == 'en')
+                translatePage('es');
+            else
+                translatePage('en');
+        }
+
+        function translatePage(language) {
+            var attributeName = 'data-tag';
+            translate.init(attributeName, language);
+            translate.process();
+            localizeElements(language);
+        }
+
+        function localizeElements(language)
+        {
+            //Images
+            if(language=='es' || language == 'en')
+                document.getElementById("logoImg").src = "assets/images/Logo SHA " + language + ".png";
+
+            //YouTubePresentationVideo
+            let ytVideo = document.getElementById("YouTubePresentationVideo");
+            if(language=='es')
+                ytVideo.src = "https://www.youtube.com/embed/XGvk_k6yDAM";
+            else if(language == 'en')
+                ytVideo.src = "https://www.youtube.com/embed/D6L10Oj7wTQ";                
+        }
+
+        function getLanguage() {
+            var usrlang = navigator.language
+                || navigator.userLanguage;
+            if (usrlang != "es")
+                usrlang = "en";
+            return usrlang;
+        }
+    </script>
+
+
 <head>
     <title>Show House App</title>
     <meta charset="utf-8" />
@@ -18,13 +67,15 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 
-<body>
+<body onload="load()">
+    
+    <a class="lang-a" data-tag="TranslateLink" onclick="switchTranslation();" href="javascript:void(0);">English</a>   
     <Header >
         <!-- <img class= "header-bg" src="assets/images/Chicago-med.webp" /> -->
         <div class="header-img-logo" >
             <!-- <h1>Show House App</h1>
             <p>From <strong>blueprints</strong> directly to your clients’ <strong>pockets</strong>!</p> -->
-            <img src="assets/images/Logo SHA.png" alt="Show House App running on multiple devices" />
+            <img id="logoImg" src="assets/images/Logo SHA en.png" alt="Show House App running on multiple devices" />
         </div>
         
 
@@ -40,15 +91,16 @@
             <div class="intro">
                 <img src="assets/images/visarch/HeroImage.png" alt="Show House App running on multiple devices" />
 
-                <p>A virtual <strong>show house</strong> in an app! Make your building or flat into an app from your
+                <!--<p data-tag="TestP" >Párrafo de prueba sin traducir.</p>-->
+                <p data-tag="A virtual show house in an app">A virtual <strong>show house</strong> in an app! Make your building or flat into an app from your
                     <strong>BIM</strong> files or <strong>blueprints</strong>, and let your clients and partners explore
                     it like if they were visiting it.
                 </p>
-                <p>Available on mobile platforms, desktop and the web!</p>
+                <p data-tag="Available on mobile platforms">Available on mobile platforms, desktop and the web!</p>
 
                 <div class="side-padder">
                     <div class="container-YouTube">
-                        <iframe class="video-YouTube" src="https://www.youtube.com/embed/D6L10Oj7wTQ"
+                        <iframe id="YouTubePresentationVideo" class="video-YouTube" src="https://www.youtube.com/embed/D6L10Oj7wTQ"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
@@ -58,13 +110,13 @@
             </div>
         </div>
 
-        <h2>Features</h2>
+        <h2 data-tag="Features">Features</h2>
 
         <div class="wrapper">
             <div class="section">
                 <div class="section-text">
-                    <h3>Model</h3>
-                    <p>Explore a model of the building to study the distribution. Rotate, pan, and zoom, plus
+                    <h3 data-tag="Model">Model</h3>
+                    <p data-tag="Explore a model of the building">Explore a model of the building to study the distribution. Rotate, pan, and zoom, plus
                         disassemble the building like a dollhouse to understand volumes.</p>
                 </div>
                 <div class="section-image">
@@ -75,10 +127,10 @@
             </div>
             <div class="section">
                 <div class="section-text">
-                    <h3>3D Explore</h3>
-                    <p>Get inside the building and go for a virtual walk. You can move and look around freely using
+                    <h3 data-tag="3D Explore">3D Explore</h3>
+                    <p data-tag="Get inside the building and go">Get inside the building and go for a virtual walk. You can move and look around freely using
                         touch controls or mouse and keyboard.</p>
-                    <p>If your device has a Gyroscope (i.e.: a mobile phone), you can use it to look around by hovering
+                    <p data-tag="If your device has a Gyroscope">If your device has a Gyroscope (i.e.: a mobile phone), you can use it to look around by hovering
                         it in front of your eyes. A virtual reality device that everyone already carry in their pockets!
                     </p>
                 </div>
@@ -90,9 +142,9 @@
             </div>
             <div class="section">
                 <div class="section-text">
-                    <h3>Photo mode</h3>
-                    <p>Enter photo mode to simulate the experience of taking a photo in real life. Move vertically and horizontally, and zoom in to frame the picture before taking your shot.</p>
-                    <p>With Photo Mode you can produce <strong>high quality render images</strong> for marketing, showcase or sharing in real time.
+                    <h3 data-tag="Photo mode">Photo mode</h3>
+                    <p data-tag="Enter photo mode">Enter photo mode to simulate the experience of taking a photo in real life. Move vertically and horizontally, and zoom in to frame the picture before taking your shot.</p>
+                    <p data-tag="With Photo Mode">With Photo Mode you can produce <strong>high quality render images</strong> for marketing, showcase or sharing in real time.
                     </p>
                 </div>
                 <div class="section-image">
@@ -103,10 +155,10 @@
             </div>            
             <div class="section">
                 <div class="section-text">
-                    <h3>Inspire with interaction</h3>
+                    <h3 data-tag="Inspire with interaction">Inspire with interaction</h3>
 
-                    <p>Go beyond passively looking at renders and prefabricated images and experience living on your new home.</p>
-                    <p>Experiment changing materials, colors and furniture. Open and close doors, interact with kitchens, hear the birds singing when walking outside.
+                    <p data-tag="Go beyond passively looking">Go beyond passively looking at renders and prefabricated images and experience living on your new home.</p>
+                    <p data-tag="Experiment changing materials">Experiment changing materials, colors and furniture. Open and close doors, interact with kitchens, hear the birds singing when walking outside.
                         Use the latest in <strong>video game technology</strong> to enhance the imagination of your clients!
                     </p>
                 </div>
@@ -119,11 +171,9 @@
             <div class="section section--multiple-image">
                 <div class="multiple-image">
                     <div class="section-text">
-                        <h3>Realistic lightning, any time of the year</h3>
-                        <p>How does the light incide on that window on summer? How long are shadows in winter? You can
-                            set
-                            the date and time to emulate realistic lighting conditions, and even change the speed of
-                            time.
+                        <h3 data-tag="Realistic lightning">Realistic lightning, any time of the year</h3>
+                        <p data-tag="How does the light incide">How does the light incide on that window on summer? How long are shadows in winter? You can set
+                            the date and time to emulate realistic lighting conditions, and even change the speed of time.
                         </p>
                     </div>
                     <div class="section-image">
@@ -143,7 +193,7 @@
 
             <div class="section multiple-image__extra-content">
                 <div class="section-text">
-                    <p>Thanks to dynamic and realistic lighting technologies, you can turn lights on and off. Realtime
+                    <p data-tag="Thanks to dynamic and realistic">Thanks to dynamic and realistic lighting technologies, you can turn lights on and off. Realtime
                         reflections on windows and water surfaces and weather control add an excelent layer of realism.
                     </p>
                 </div>
@@ -156,8 +206,8 @@
 
             <div class="section">
                 <div class="section-text">
-                    <h3>Explore blueprints</h3>
-                    <p>Bring your blueprints with you anywhere. You can choose between multiple floor plans, zoom and
+                    <h3 data-tag="Explore blueprints">Explore blueprints</h3>
+                    <p data-tag="Bring your blueprints">Bring your blueprints with you anywhere. You can choose between multiple floor plans, zoom and
                         pan to explore them without needing a printed copy.</p>
                 </div>
                 <div class="section-image">
@@ -168,8 +218,8 @@
 
             <div class="section">
                 <div class="section-text">
-                    <h3>Photo gallery</h3>
-                    <p>Show the best shots and info of your building with the included photo gallery.</p>
+                    <h3 data-tag="Photo gallery">Photo gallery</h3>
+                    <p data-tag="Show the best shots">Show the best shots and info of your building with the included photo gallery.</p>
                 </div>
                 <div class="section-image">
                     <img src="assets/images/visarch/Gallery.png" alt="Photo gallery" />
@@ -178,17 +228,17 @@
         </div>
         <!--Downloads-->
         <a id="Downloads">
-            <h2>Projects and demos</h2>
+            <h2 data-tag="Projects and demos">Projects and demos</h2>
         </a>
         <div class="wrapper">
             <!--María Josefa Segovia-->
             <div class="section section--downloads">
                 <div class="section-text">
-                    <h3>Mar&iacute;a Josefa Segovia</h3>
-                    <p>A seven-apartment building development on sale on Seville, Spain.</p>
-                    <p>The app features a 3D model, a 3D virtual walk, blueprint view, info of the building and a
+                    <h3 data-tag="María Josefa Segovia">Mar&iacute;a Josefa Segovia</h3>
+                    <p data-tag="A seven-apartment building">A seven-apartment building development on sale on Seville, Spain.</p>
+                    <p data-tag="The app features a 3D model">The app features a 3D model, a 3D virtual walk, blueprint view, info of the building and a
                         contact page to reach the real estate agent. This is the first app to feature the <strong>photo mode</strong>, among other interactive features.</p>
-                    <p>App language is Spanish.</p>
+                    <p data-tag="App language is Spanish">App language is Spanish.</p>
                     <ul class="actions actions--desktop">
                         <li>
                             <a href='https://www.microsoft.com/store/apps/9npspm9c4847?ocid=badge' target="_blank">
@@ -228,11 +278,11 @@
             <!--Fernández de Guadalupe-->
             <div class="section section--downloads">
                 <div class="section-text">
-                    <h3>Fern&aacute;ndez de Guadalupe</h3>
-                    <p>A three-apartment building development on sale on Seville, Spain.</p>
-                    <p>The app features a 3D model, a 3D virtual walk, blueprint view, info of the building and a
+                    <h3 data-tag="Fernández de Guadalupe">Fern&aacute;ndez de Guadalupe</h3>
+                    <p data-tag="FG2">A three-apartment building development on sale on Seville, Spain.</p>
+                    <p data-tag="FG3">The app features a 3D model, a 3D virtual walk, blueprint view, info of the building and a
                         contact page to reach the real estate agent. This is the first app to feature a <strong>working elevator</strong>, among other features.</p>
-                    <p>App language is Spanish.</p>
+                    <p data-tag="FG4">App language is Spanish.</p>
                     <ul class="actions actions--desktop">
                         <li>
                             <a href='https://www.microsoft.com/store/apps/9n68231mgd53?ocid=badge' target="_blank">
@@ -272,11 +322,11 @@
             <!--Cliff House-->
             <div class="section section--downloads">
                 <div class="section-text">
-                    <h3>Cliff House</h3>
-                    <p>A three-bedroom, two-stories villa at the top of a cliff. </p>
-                    <p>Fictionally situated in South Spain, this villa is a fully furnished house with plenty of
+                    <h3 data-tag="Cliff House">Cliff House</h3>
+                    <p data-tag="CH2">A three-bedroom, two-stories villa at the top of a cliff.</p>
+                    <p data-tag="CH3">Fictionally situated in South Spain, this villa is a fully furnished house with plenty of
                         interactive elements and finish configurations, awaiting your virtual visit!</p>
-                    <p>Download this app to experience all the features that we can incorporate on a custom <strong>Show
+                    <p data-tag="CH4">Download this app to experience all the features that we can incorporate on a custom <strong>Show
                             House App</strong></p>
                     <ul class="actions actions--desktop">
                         <li>
@@ -296,7 +346,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p><strong>Mac: </strong>Unzip and ⌘ + click to open.</p>
+                    <p data-tag="CH5"><strong>Mac: </strong>Unzip and ⌘ + click to open.</p>
                 </div>
                 <div class="section-image">
                     <img src="assets/images/visarch/Cliff-House-Mobile.png" alt="Cliff House demo app" />
@@ -324,9 +374,9 @@
             <!--Demo building-->
             <div class="section section--downloads">
                 <div class="section-text">
-                    <h3>Demo building</h3>
-                    <p>Download the demo app for Windows, Android, and Mac.</p>
-                    <p>The demo app features a simple multi-store building, showing off many of the features available
+                    <h3 data-tag="Demo building">Demo building</h3>
+                    <p data-tag="DM2">Download the demo app for Windows, Android, and Mac.</p>
+                    <p data-tag="DM3">The demo app features a simple multi-store building, showing off many of the features available
                         in a lightweight package.</p>
                     <ul class="actions actions--desktop">
                         <li>
@@ -346,7 +396,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p><strong>Mac: </strong>Unzip and ⌘ + click to open.</p>
+                    <p data-tag="DM4"><strong>Mac: </strong>Unzip and ⌘ + click to open.</p>
                 </div>
                 <div class="section-image">
                     <p>
@@ -380,10 +430,10 @@
     <!--Footer-->
     <footer>
         <div class="wrapper">
-            <h3>Contact us</h3>
-            <p>Every building, home and construction project is different. <br> Reach us so we can discuss your needs
-                and
-                tailor the app that suits you best!</p>
+            <h3 data-tag="Contact us">Contact us</h3>
+            <p data-tag="Footer2">Every building, home and construction project is different. <br> Reach us so we can discuss your needs
+                and tailor the app that suits you best!
+            </p>
             <p><a href="mailto:info@showhouseapp.com"><i class="far fa-envelope"></i> info@showhouseapp.com</a></p>
         </div>
 
