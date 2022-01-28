@@ -46,9 +46,10 @@
         function getLanguage() {
             var usrlang = navigator.language
                 || navigator.userLanguage;
-            if (usrlang != "es")
-                usrlang = "en";
-            return usrlang;
+                var lang = usrlang.split('-')[0];
+            if (lang != "es")
+                lang = "en";
+            return lang;
         }
     </script>
 
