@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Paseo 360&deg;</title>
+  <meta name="description" content="360&deg; Image - A-Frame">
+  <script src="./js/aframe-master.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dialog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="popup-menu-div">
+    <a href="./homeScreen.html">
+      <i class="fa fa-home" style="font-size:48px;"></i>
+    </a>
+    <br />
+    <a id="AChangeImage" onclick="openDialog()">
+      <i class="fa fa-map-o" style="font-size:40px;"></i>
+    </a>
+  </div>
+  <!-- <a href="homeScreen.html">Volver</a> -->
+
+  <div class="dialog-box" id="dialog" style="display: none;">
+    <div class="dialog-header">
+      <h2>Pulse en la habitación que quiera visitar</h2>
+      <button class="close-btn" onclick="closeDialog()">&times;</button>
+    </div>
+    <div class="dialog-content">
+      <img class="dialog-map" src="./assets/img/plano.jpg" usemap="#mapaHabitaciones" id="imgHabitaciones"/>
+      <a onclick="change_360('salon')" title="Salón" style="left: 8.69%; top: 7.89%; width: 34.67%; height: 30.45%; z-index: 2; "></a>
+      <a onclick="change_360('cocina')" title="Cocina" style="left: 8.11%; top: 44.55%; width: 23.63%; height: 20.11%; z-index: 2;"></a>
+      <a onclick="change_360('dormitorio_pequeno')" title="Dormitorio pequeño" style="left: 46.09%; top: 8.27%; width: 12.11%; height: 30.64%; z-index: 2;"></a>
+      <a onclick="change_360('baño_comun')" title="Baño común" style="left: 36.04%; top: 47.37%; width:10.35%;height:24.62%;z-index:2;"></a>
+      <a onclick="change_360('dormitorio_mediano')" title="Dormitorio mediano" style="left:50.29%;top:49.62%;width:15.43%;height:29.32%;z-index:2;"></a>
+      <a onclick="change_360('dormitorio_matrimonio')" title="Dormitorio de matrimonio" style="left:67.87%;top:49.06%;width:10.45%;height:41.54%;z-index:2;"></a>
+      <a onclick="change_360('bano_privado')" title="Baño privado" style="left:81.35%;top:46.99%;width:14.75%;height:27.44%;z-index:2;"></a>
+      <a onclick="change_360('vestidor')" title="Vestidor" style="left:80.86%;top:75.38%;width:15.33%;height:18.23%;z-index:2;"></a>
+
+      <!-- <map class="dialog-map" name="mapaHabitaciones" id="mapaHabitaciones">
+        <area alt="Salón" title="Salón" coords="101,49,453,222" shape="rect" onclick="change_360('salon')">
+        <area alt="Cocina" title="Cocina" coords="77,350,331,243" shape="rect" onclick="change_360('cocina')">
+        <area alt="Baño común" title="Baño común" coords="366,382,469,253" shape="rect" onclick="change_360('baño_comun')">
+        <area alt="Dormitorio pequeño" title="Dormitorio pequeño" coords="614,34,474,195" shape="rect" onclick="change_360('dormitorio_pequeño')">
+        <area alt="Dormitorio mediano" title="Dormitorio mediano" coords="670,418,523,262" shape="rect" onclick="change_360('dormitorio_mediano')">
+        <area alt="Dormitorio matrimonio" title="Dormitorio matrimonio" coords="695,466,793,264" shape="rect" onclick="change_360('dormitorio_matrimonio')">
+        <area alt="Baño privado" title="Baño privado" coords="815,393,940,245" shape="rect" onclick="change_360('baño_privado')">
+        <area alt="Vestidor" title="Vestidor" coords="983,407,814,484" shape="rect" onclick="change_360('vestidor')">
+      </map> -->
+      </div>
+    </div>
+  </div>
+
+  <a-scene>
+    <a-entity camera look-controls="reverseMouseDrag: true"></a-entity>
+    <a-sky src="./assets/img/360/360_salon.jpg" rotation="0 90 0"></a-sky>
+  </a-scene>
+
+  <script>
+    function change_360(destino) {
+      var boxEl = document.querySelector('a-sky');
+      let controls = document.querySelector('a-entity').components['look-controls'];
+      
+
+      console.log(destino);
+      switch (destino) {
+        case "salon":
+          boxEl.setAttribute('src', "./assets/img/360/360_salon.jpg");
+          controls.pitchObject.rotation.x = 0;
+          controls.yawObject.rotation.y = 0;
+          break;
+        case "cocina":
+          boxEl.setAttribute('src', "./assets/img/360/360_cocina.jpg");
+          controls.pitchObject.rotation.x = 0;
+          controls.yawObject.rotation.y = -1.57;
+          break;
+        case "baño_comun":
+          boxEl.setAttribute('src', "./assets/img/360/360_bano_comun.jpg");
+          controls.pitchObject.rotation.x = -0.2;
+          controls.yawObject.rotation.y = -1.57;
+          break;
+        case "dormitorio_mediano":
+          boxEl.setAttribute('src', "./assets/img/360/360_dormitorio_mediano.jpg");
+          controls.pitchObject.rotation.x = -0.2;
+          controls.yawObject.rotation.y = -1.57;
+          break;
+        case "dormitorio_pequeno":
+          boxEl.setAttribute('src', "./assets/img/360/360_dormitorio_pequeno.jpg");
+          controls.pitchObject.rotation.x = -0.15;
+          controls.yawObject.rotation.y = 1.57;
+          break;
+        case "dormitorio_matrimonio":arguments
+          boxEl.setAttribute('src', "./assets/img/360/360_dormitorio_matrimonio.jpg");
+          controls.pitchObject.rotation.x = 0;
+          controls.yawObject.rotation.y = 0;
+          break;
+        case "bano_privado":
+          boxEl.setAttribute('src', "./assets/img/360/360_bano_dormitorio.jpg");
+          controls.pitchObject.rotation.x = -0.3;
+          controls.yawObject.rotation.y = -1.57;
+          break;
+        case "vestidor":
+          boxEl.setAttribute('src', "./assets/img/360/360_vestidor.jpg");
+          controls.pitchObject.rotation.x = -0.2;
+          controls.yawObject.rotation.y = -0.75;
+          break;
+
+      }
+
+      closeDialog();
+    }
+  </script>
+
+  <!-- Script to control the dialog -->
+  <script>
+    function openDialog() {
+      document.getElementById("dialog").style.display = "flex";
+    }
+
+    function closeDialog() {
+      document.getElementById("dialog").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>

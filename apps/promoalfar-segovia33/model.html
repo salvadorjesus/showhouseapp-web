@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dialog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Maqueta</title>
+</head>
+
+<body>
+  <div class="popup-menu-div" onclick='event.stopPropagation();'>
+    <a href="./homeScreen.html">
+      <i class="fa fa-home" style="font-size:48px;"></i>
+    </a>
+    <br />
+    <a onclick="openDialog()">
+      <i class="fa fa-map-o" style="font-size:40px;"></i>
+    </a>
+  </div>
+
+  <div class="dialog-box" id="dialog" style="display: none;">
+    <div class="dialog-header">
+      <h2>¿A qué planta quiere ir?</h2>
+      <button class="close-btn" onclick="closeDialog()">&times;</button>
+    </div>
+    <div class="dialog-content">
+      <ul>
+        <li onclick="changeVideo('Azotea_cubierta'); closeDialog()">Azotea</li>
+        <li onclick="changeVideo('Azotea_descubierta'); closeDialog()">Azotea sin cubiertas</li>
+        <li onclick="changeVideo('Tercera_planta'); closeDialog()">Tercera planta</li>
+        <li onclick="changeVideo('Segunda_planta'); closeDialog()">Segunda planta</li>
+        <li onclick="changeVideo('Primera_planta'); closeDialog()">Primera planta</li>
+        <li onclick="changeVideo('Planta_baja'); closeDialog()">Planta baja</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <video id="modelVideo" class="video-model" playsinline muted autoplay loop controlList="nodownload" preload="auto"
+      onclick="videoPlayback()" src="assets/vid/Azotea_cubierta.m4v" type="video/mp4">
+    </video>
+    <a onclick="openFullscreen();" class="video-fullScreen-button"><i class="fa fa-expand"></i></a>
+  </div>
+
+  <!-- Script to control video playback -->
+  <script>
+    var isVideoPlaying = true;
+
+    function videoPlayback() {
+      if (isVideoPlaying) {
+        modelVideo.pause();
+      }
+      else {
+        modelVideo.play();
+      }
+      isVideoPlaying = !isVideoPlaying;
+    }
+
+    function openFullscreen() {
+      if (modelVideo.requestFullscreen) {
+        modelVideo.requestFullscreen();
+      } else if (modelVideo.mozRequestFullScreen) { /* Firefox */
+        modelVideo.mozRequestFullScreen();
+      } else if (modelVideo.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        modelVideo.webkitRequestFullscreen();
+      } else if (modelVideo.msRequestFullscreen) { /* IE/Edge */
+        modelVideo.msRequestFullscreen();
+      }
+    }
+
+  </script>
+
+  <!-- Script para cambiar el vídeo -->
+  <script>
+    function changeVideo(videoName) {
+      var video = document.getElementById("modelVideo");
+      var time = video.currentTime;
+      video.setAttribute("src", "assets/vid/" + videoName + ".m4v");
+      //video.currentTime = time;
+    }
+  </script>
+
+
+  <!-- Script to control the dialog -->
+  <script>
+    function openDialog() {
+      document.getElementById("dialog").style.display = "flex";
+    }
+
+    function closeDialog() {
+      document.getElementById("dialog").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

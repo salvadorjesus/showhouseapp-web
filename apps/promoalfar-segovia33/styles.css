@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Geomanist:wght@300;400;500;600&display=swap');
+
+:root {
+  --popup-icon-color: #ffffff;
+  --popup-backgroundColor: rgba(0,0,0, 0.4);;
+  --popup-icon-hover: #aabffd;
+}
+
+/* POP UP MENU*/
+.popup-menu-div {
+  text-align: center;
+  background-color: var(--popup-backgroundColor);
+  width: 5%;
+  border-radius: 7px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+  z-index: 10;
+}
+
+.popup-menu-div a {
+  color: var(--popup-icon-color);
+}
+
+.popup-menu-div a:link {
+  color: var(--popup-icon-color);
+}
+
+.popup-menu-div a:visited {
+  color: var(--popup-icon-color);
+}
+
+.popup-menu-div a:hover {
+  color: var(--popup-icon-hover);
+}
+
+/* BODY Y RESTO*/
+body {
+  background-image: url("./assets/img/fondo.jpg");
+  background-blend-mode: lighten;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: 'Geomanist', sans-serif;
+  height: 100vh;
+  background-size: cover;
+  /* object-fit: cover; */
+}
+
+h2 {
+  /* color: rgb(88, 31, 31); */
+  color: #002D74;
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+}
+
+p {
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+}
+
+.right-layout{
+  text-align: right;
+  
+}
+
+.title-image {
+  width: 50%;
+  margin: 50px auto;
+  display: block;
+  text-align: center;
+}
+
+.company-image {
+  width: max(50%, 350px);
+  margin: 50px auto;
+  display: block;
+  text-align: center;
+}
+
+.photo-image {
+  width: min(80%, 1080px);
+  margin: 50px auto;
+  display: block;
+  text-align: center;
+}
+
+.title-text {
+  font-family: "Roboto Light", sans-serif;
+  color: gray;
+  margin: 0, 0, 15px, 0;
+  text-transform: uppercase;
+  /* font-size: 1.25rem; */
+  animation: appearing 1s ease-out forwards;
+  text-align: center;
+  font-family: 'Geomanist', sans-serif;
+  font-weight: 200;
+}
+
+/* BOTONES */
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 30%;
+  margin: 20px;
+  background-color: #fafafa;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 200px;
+  max-width: 500px;
+  transition: background-color 0.25s ease;
+}
+
+.button--contact {
+  width: 15%;
+}
+
+.button:hover {
+  background-color: #e7e7e7;
+}
+
+.button img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.button p {
+  font-family: "Roboto Light", sans-serif;
+  color: gray;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  animation: appearing 1s ease-out forwards;
+}
+
+.contact-button-text {
+  font-family: "Roboto Light", sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: max(1vw, 12px);
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation: appearing 1s ease-out forwards;
+  color: gray;
+}
+
+@keyframes appearing {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+/*video vertical*/
+.video-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.video-model {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  width: 100%;
+}
+
+.video-fullScreen-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+
+  /* Asegurar que el ancho y alto sean iguales */
+  padding: 10px;
+  width: 25px;
+  height: 25px;
+  line-height: 30px;
+  /* Centrar verticalmente el texto */
+  text-align: center;
+  /* Centrar horizontalmente el texto */
+}
+
+.video-fullScreen-button:hover {
+  background-color: rgba(0,0,0,0.35);
+}
+
+/* @media (max-aspect-ratio: 1/1) {
+  .video-model {
+
+    transform: rotate(90deg) translate(-50%, -50%);
+    transform-origin: top left;
+    // height: 100vh; 
+    width: 100vh;
+  }
+} */
