@@ -6,6 +6,10 @@
   --popup-icon-hover: #aabffd;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* POP UP MENU*/
 .popup-menu-div {
   text-align: center;
@@ -137,31 +141,11 @@ p {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  width: 30%;
-  margin: 20px;
   background-color: #fafafa;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  min-width: 200px;
-  max-width: 500px;
   transition: background-color 0.25s ease;
-}
-
-@media (pointer:coarse)
-{
-  .button{
-    width: 70%;
-    max-width: 750px;
-  }
-}
-
-@media (pointer:coarse) and (orientation:landscape)
-{
-  .button{
-    width: 45%;
-    max-width: 500px;
-  }
 }
 
 .button:hover {
@@ -182,12 +166,6 @@ p {
   font-size: 1.25rem;
   animation: appearing 1s ease-out forwards;
 }
-@media (pointer:coarse)
-{
-  .button p{
-    font-size: 200%;
-  }
-}
 
 @keyframes appearing {
   from {
@@ -204,38 +182,36 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  gap: 40px;
 }
 
 .button--contact {
-  width: max(15%, 250px);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  gap: 20px;
+  min-width: 300px;
 }
 
 .button--contact img{
-  width: 50%;
+  max-width: 150px;
 }
 
-@media (pointer:coarse)
+@media (pointer: coarse) and (orientation: portrait)
 {
-  .button--contact{
-    width: 65%;
-    max-width: 750px;
-  }
 }
 
-@media (pointer:coarse) and (orientation:landscape)
+@media (pointer: coarse) and (orientation: landscape)
 {
-  .button--contact{
-    width: 25%;
-    max-width: 500px;
-  }
 }
 
 .contact-button-text {
   font-family: "Roboto Light", sans-serif;
   margin: 0;
   text-transform: uppercase;
-  font-size: max(0.95vw, 14px);
+  font-size: 18px;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -246,7 +222,7 @@ p {
 @media (pointer:coarse)
 {
   .contact-button-text{
-    font-size: 200%
+    /* font-size: 200% */
   }
 }
 
@@ -283,33 +259,19 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   /* Asegurar que el ancho y alto sean iguales */
   padding: 10px;
-  width: 25px;
-  height: 25px;
-  line-height: 30px;
-  /* Centrar verticalmente el texto */
-  text-align: center;
-  /* Centrar horizontalmente el texto */
+  width: 32px;
+  height: 32px;
+  line-height: 1;
 }
-@media (pointer:coarse)
-{
-  .video-fullScreen-button {
 
-    bottom: 20px;
-    right: 15px;
-
-  
-    /* Asegurar que el ancho y alto sean iguales */
-    padding: 10px;
-    width: 7vw;
-    height: 7vw;
-    line-height: 70px;
-    /* Centrar verticalmente el texto */
-    text-align: center;
-    /* Centrar horizontalmente el texto */
-    font-size: 3.5vw;
-  }
+.video-fullScreen-button i {
+  font-size: 24px;
 }
 
 .video-fullScreen-button:hover {
