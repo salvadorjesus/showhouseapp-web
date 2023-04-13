@@ -11,15 +11,37 @@
   text-align: center;
   background-color: var(--popup-backgroundColor);
   width: 5%;
-  border-radius: 7px;
+  
   position: fixed;
   top: 20px;
   left: 20px;
   box-sizing: border-box;
-  padding: 10px;
   width: fit-content;
   height: fit-content;
   z-index: 10;
+}
+
+@media (pointer:coarse) {
+  .popup-menu-div {
+    font-size: 12vw;
+    padding: 20px;
+    border-radius: 3vw;
+  }
+}
+
+@media (pointer:coarse) and (orientation:landscape)
+ {
+  .popup-menu-div {
+    font-size: 12hw;
+  }
+}
+
+@media (pointer:fine) {
+  .popup-menu-div {
+    font-size: 48px;
+    padding: 10px;
+    border-radius: 1vw;
+  }
 }
 
 .popup-menu-div a {
@@ -50,6 +72,7 @@ body {
   height: 100vh;
   background-size: cover;
   /* object-fit: cover; */
+  font-size: 18px;
 }
 
 h2 {
@@ -77,10 +100,16 @@ p {
 }
 
 .company-image {
-  width: max(50%, 350px);
+  width: min(75%, 600px);
   margin: 50px auto;
   display: block;
   text-align: center;
+}
+@media (pointer:coarse) and (orientation:portrait)
+{
+  .company-image{
+    width: 75%;
+  }
 }
 
 .photo-image {
@@ -119,8 +148,20 @@ p {
   transition: background-color 0.25s ease;
 }
 
-.button--contact {
-  width: 15%;
+@media (pointer:coarse)
+{
+  .button{
+    width: 70%;
+    max-width: 750px;
+  }
+}
+
+@media (pointer:coarse) and (orientation:landscape)
+{
+  .button{
+    width: 45%;
+    max-width: 500px;
+  }
 }
 
 .button:hover {
@@ -141,18 +182,11 @@ p {
   font-size: 1.25rem;
   animation: appearing 1s ease-out forwards;
 }
-
-.contact-button-text {
-  font-family: "Roboto Light", sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: max(1vw, 12px);
-  word-wrap: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  animation: appearing 1s ease-out forwards;
-  color: gray;
+@media (pointer:coarse)
+{
+  .button p{
+    font-size: 200%;
+  }
 }
 
 @keyframes appearing {
@@ -165,11 +199,62 @@ p {
   }
 }
 
+/* BOTONES DE CONTACTO */
 .buttonContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+}
+
+.button--contact {
+  width: max(15%, 250px);
+}
+
+.button--contact img{
+  width: 50%;
+}
+
+@media (pointer:coarse)
+{
+  .button--contact{
+    width: 65%;
+    max-width: 750px;
+  }
+}
+
+@media (pointer:coarse) and (orientation:landscape)
+{
+  .button--contact{
+    width: 25%;
+    max-width: 500px;
+  }
+}
+
+.contact-button-text {
+  font-family: "Roboto Light", sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: max(0.95vw, 14px);
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation: appearing 1s ease-out forwards;
+  color: gray;
+}
+@media (pointer:coarse)
+{
+  .contact-button-text{
+    font-size: 200%
+  }
+}
+
+@media (pointer:coarse) and (orientation:landscape)
+{
+  .contact-button-text{
+    font-size: 95%
+  }
 }
 
 /*video vertical*/
@@ -206,6 +291,25 @@ p {
   /* Centrar verticalmente el texto */
   text-align: center;
   /* Centrar horizontalmente el texto */
+}
+@media (pointer:coarse)
+{
+  .video-fullScreen-button {
+
+    bottom: 20px;
+    right: 15px;
+
+  
+    /* Asegurar que el ancho y alto sean iguales */
+    padding: 10px;
+    width: 7vw;
+    height: 7vw;
+    line-height: 70px;
+    /* Centrar verticalmente el texto */
+    text-align: center;
+    /* Centrar horizontalmente el texto */
+    font-size: 3.5vw;
+  }
 }
 
 .video-fullScreen-button:hover {

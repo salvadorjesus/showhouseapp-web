@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>Paseo 360&deg;</title>
-  <meta name="description" content="360&deg; Image - A-Frame">
   <script src="./js/aframe-master.js"></script>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="dialog.css" />
@@ -25,7 +24,7 @@
 
   <div class="dialog-box" id="dialog" style="display: none;">
     <div class="dialog-header">
-      <h2>Pulse en la habitación que quiera visitar</h2>
+      <h2>¿Qué habitación quiere visitar?</h2>
       <button class="close-btn" onclick="closeDialog()">&times;</button>
     </div>
     <div class="dialog-content">
@@ -53,7 +52,7 @@
     </div>
   </div>
 
-  <a-scene>
+  <a-scene vr-mode-ui="enabled: false">
     <a-entity camera look-controls="reverseMouseDrag: true"></a-entity>
     <a-sky src="./assets/img/360/360_salon.jpg" rotation="0 90 0"></a-sky>
   </a-scene>

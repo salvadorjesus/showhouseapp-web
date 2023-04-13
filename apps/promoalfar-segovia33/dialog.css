@@ -13,6 +13,18 @@
     justify-content: center;
     z-index: 20;
   }
+
+  @media (pointer:coarse) {
+    .dialog-box {
+      font-size: 4vw;
+    }
+  }
+  
+  /* @media (pointer:fine) {
+    .dialog-box {
+      font-size: 48px;
+    }
+  } */
   
   .dialog-header {
     width: 80%;
@@ -33,6 +45,7 @@
     animation: appearing 1s ease-out forwards;
     text-transform: uppercase;
     font-weight: 200;
+    font-size: 1.2em;
   }
   
   .close-btn {
@@ -41,6 +54,11 @@
     font-size: 24px;
     cursor: pointer;
     color: white;
+  }
+  @media (pointer:coarse) {
+    .close-btn{
+      font-size: 6vw;
+    }
   }
   
   .dialog-content {
