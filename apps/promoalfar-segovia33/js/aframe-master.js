@@ -72163,7 +72163,7 @@
         // Show dialog only if permission has not yet been granted.
         DeviceOrientationEvent.requestPermission().catch(function () {
           self.devicePermissionDialogEl = createPermissionDialog(
-            'This immersive website requires access to your device motion sensors.',
+            'Permitir acceso a los sensores de movimiento del dispositivo.',
             self.onDeviceMotionDialogAllowClicked,
             self.onDeviceMotionDialogDenyClicked);
           self.el.appendChild(self.devicePermissionDialogEl);
@@ -72234,13 +72234,13 @@
       denyButton = document.createElement('button');
       denyButton.classList.add(DIALOG_BUTTON_CLASS, DIALOG_DENY_BUTTON_CLASS);
       denyButton.setAttribute(constants.AFRAME_INJECTED, '');
-      denyButton.innerHTML = 'Deny';
+      denyButton.innerHTML = 'Denegar';
       buttonsContainer.appendChild(denyButton);
     
       acceptButton = document.createElement('button');
       acceptButton.classList.add(DIALOG_BUTTON_CLASS, DIALOG_ALLOW_BUTTON_CLASS);
       acceptButton.setAttribute(constants.AFRAME_INJECTED, '');
-      acceptButton.innerHTML = 'Allow';
+      acceptButton.innerHTML = 'Permitir';
       buttonsContainer.appendChild(acceptButton);
     
       // Ask for sensor events to be used
