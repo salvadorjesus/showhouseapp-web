@@ -40,6 +40,7 @@
   </div>
 
   <div class="video-container">
+    <div class="video-loading-label" id="loading_video_label">Cargando...</div>
     <video id="modelVideo" class="video-model" playsinline muted autoplay loop controlList="nodownload" preload="auto"
       src="assets/vid/Azotea_cubierta.m4v" type="video/mp4">
       <!-- onclick="videoPlayback()" -->
@@ -78,6 +79,7 @@
   <!-- Script para cambiar el vídeo -->
   <script>
     function changeVideo(videoName) {
+      document.getElementById("loading_video_label").style.display = "flex";
       var video = document.getElementById("modelVideo");
       var time = video.currentTime;
       video.setAttribute("src", "assets/vid/" + videoName + ".m4v");
@@ -85,6 +87,15 @@
     }
   </script>
 
+<!--Evento de carga del vídeo-->
+<script>
+  var miVideo = document.getElementById('modelVideo');
+  var loadingLabel = document.getElementById('loading_video_label');
+    
+  miVideo.addEventListener('loadeddata', function() {
+    document.getElementById("loading_video_label").style.display = "none";
+  });
+</script>
 
   <!-- Script to control the dialog -->
   <script>
