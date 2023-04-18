@@ -86,15 +86,24 @@
     }
   </script>
 
-<!--Evento de carga del vídeo-->
-<script>
-  var miVideo = document.getElementById('modelVideo');
-  var loadingLabel = document.getElementById('loading_video_label');
-    
-  miVideo.addEventListener('loadeddata', function() {
-    document.getElementById("loading_video_label").style.display = "none";
-  });
-</script>
+  <!--Evento de carga del vídeo-->
+  <script>
+    var miVideo = document.getElementById('modelVideo');
+    var loadingLabel = document.getElementById('loading_video_label');
+
+    miVideo.addEventListener('loadeddata', function () {
+      document.getElementById("loading_video_label").style.display = "none";
+    });
+
+    /*Añadir el atributo controls en ios*/
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (iOS) {
+      miVideo.setAttribute("controls", "controls");
+    } 
+    // else {
+    //   miVideo.removeAttribute("controls");
+    // }
+  </script>
 
   <!-- Script to control the dialog -->
   <script>
