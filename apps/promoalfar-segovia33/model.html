@@ -4,27 +4,26 @@
 <head>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="dialog.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link  rel="icon"   href="./assets/img/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="topMenu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css">
+  <link rel="icon" href="./assets/img/favicon.png" type="image/png" />
   <title>Maqueta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
 </head>
 
 <body>
-  <div class="popup-menu-div" onclick='event.stopPropagation();'>
-    <a href="./homeScreen.html">
-      <i class="fa fa-home" ></i>
-    </a>
-    <br />
-    <a onclick="openDialog()">
-      <i class="fa fa-map-o" style="font-size:0.8em;"></i>
-    </a>
+
+  <div class="top-menu-div">
+    <a href="./homeScreen.html"><i class="fa fa-home"></i>Inicio</a>
+    <a onclick="openDialog()"><i class="fa fa-layer-group" style="font-size:0.9em;"></i>Plantas</a>
   </div>
+
+  <br /><br /><br />
 
   <div class="dialog-box" id="dialog" style="display: none;">
     <div class="dialog-header">
-      <h2>¿Qué planta quiere ver?</h2>
+      <h2>Seleccionar planta</h2>
       <button class="close-btn" onclick="closeDialog()">&times;</button>
     </div>
     <div class="dialog-content">

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Geomanist:wght@300;400;500;600&display=swap');
+
+:root {
+  --popup-icon-color: #ffffff;
+  --popup-backgroundColor: rgba(0,0,0, 0.6);;
+  --popup-icon-hover: #aabffd;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* POP UP MENU*/
+.top-menu-div {
+  text-align: center;
+  top: 0;
+  left: 0;
+  background-color: var(--popup-backgroundColor);
+  width: 100%;
+  font-family: "Roboto Light", sans-serif;
+  text-transform: uppercase;
+  font-weight: 200;
+  position: fixed;
+  z-index: 10;
+}
+
+.top-menu-div a {
+    color: var(--popup-icon-color);
+    display: inline-block;
+    padding: 10px;
+    font-size: x-large;
+    text-decoration: none;
+  }
+  
+  .top-menu-div a:link {
+    color: var(--popup-icon-color);
+  }
+  
+  .top-menu-div a:visited {
+    color: var(--popup-icon-color);
+  }
+  
+  .top-menu-div a:hover {
+    color: var(--popup-icon-hover);
+  }
+
+  .top-menu-div i {
+    margin-right: 10px;
+  }
