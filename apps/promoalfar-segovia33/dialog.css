@@ -27,7 +27,7 @@
   } */
   
   .dialog-header {
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,24 +45,24 @@
     animation: appearing 1s ease-out forwards;
     text-transform: uppercase;
     font-weight: 200;
-    font-size: 1.2em;
+    font-size: 1.15em;
   }
   
   .close-btn {
     background-color: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 36px;
     cursor: pointer;
     color: white;
   }
   @media (pointer:coarse) {
     .close-btn{
-      font-size: 6vw;
+      font-size: 10vw;
     }
   }
   
   .dialog-content {
-    width: 80%;
+    width: 85%;
     padding: 20px;
     background-color: #dee0ec;
     position: relative;
