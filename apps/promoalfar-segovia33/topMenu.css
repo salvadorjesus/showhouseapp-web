@@ -2,7 +2,7 @@
 
 :root {
   --popup-icon-color: #ffffff;
-  --popup-backgroundColor: rgba(0,0,0, 0.6);;
+  --popup-backgroundColor: rgba(0,0,0, 0.6);
   --popup-icon-hover: #aabffd;
 }
 
@@ -22,6 +22,7 @@
   font-weight: 200;
   position: fixed;
   z-index: 10;
+  padding: 5px;
 }
 
 .top-menu-div a {
@@ -30,6 +31,9 @@
     padding: 10px;
     font-size: x-large;
     text-decoration: none;
+    border-radius: 5px;
+    /*border: 2px solid rgb(109, 109, 109); */
+    background-color: rgba(255,255,255, 0.15);;
   }
   
   .top-menu-div a:link {
