@@ -86,9 +86,21 @@ h2 {
   margin-right: 3.5%;
 }
 
+h3 {
+  color: rgb(88, 31, 31);
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+}
+
 p {
   margin-left: 3.5%;
   margin-right: 3.5%;
+}
+
+ul {
+  margin-left: 3.5%;
+  margin-right: 6%;
+  /* text-align: justify; */
 }
 
 .right-layout{
